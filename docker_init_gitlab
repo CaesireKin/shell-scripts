@@ -1,6 +1,0 @@
-# !/bin/bash
-
-container_name=$1
-volume_dir=$2
-
-sudo docker run --name $container_name -p 443:443 -p 80:80 --restart always -v $volume_dir/config:/etc/gitlab -v $volume_dir/logs:/var/log/gitlab -v $volume_dir/data:/var/opt/gitlab -d gitlab/gitlab-ce
