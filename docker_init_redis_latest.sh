@@ -5,7 +5,7 @@ docker_volumes=$2;
 redis_password=$3;
 
 if [ ! $container_name ] || [ ! $docker_volumes ] || [ ! $redis_password ]; then
-  echo "Usage: ./docker-dev-env-init \${container_name} \${docker_volumes} \${redis_password}";
+  echo "Usage: ./docker_init_redis_latest.sh \${container_name} \${docker_volumes} \${redis_password}";
   exit -1;
 fi
 

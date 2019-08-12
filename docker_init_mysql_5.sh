@@ -5,7 +5,7 @@ docker_volumes=$2;
 mysql_root_password=$3;
 
 if [ ! $container_name ] || [ ! $docker_volumes ] || [ ! $mysql_root_password ]; then
-  echo "Usage: ./docker-dev-env-init \${container_name} \${docker_volumes} \${mysql_root_password}";
+  echo "Usage: ./docker_init_mysql_5.sh \${container_name} \${docker_volumes} \${mysql_root_password}";
   exit -1;
 fi
 
