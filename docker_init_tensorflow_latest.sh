@@ -16,5 +16,5 @@ sudo docker container rm $container_name;
 echo "Docker Volumes: $volume_dir, starting initializing...";
 sudo docker run -it --name $container_name \
     -p $jupyter_port:8888 -p $service_port:5000 \
-    -v $volume_dir/$container_name/models:/var/tensorflow/models -v $volume_dir/$container_name/jupyter:/ef/notebooks \
+    -v $volume_dir/$container_name/models:/var/tensorflow/models -v $volume_dir/$container_name/jupyter:/tf/notebooks \
     -d tensorflow/tensorflow:latest-py3-jupyter
