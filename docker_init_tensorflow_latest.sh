@@ -18,6 +18,7 @@ echo "Docker Volumes: $volume_dir, starting initializing...";
 sudo docker run -it --name $container_name \
     -p $jupyter_port:8888 -p $service_port:5000 \
     -v $volume_dir/$container_name/server:/var/tensorflow_server -v $volume_dir/$container_name/jupyter:/tf/notebooks \
+    --restart always \
     -d tensorflow/tensorflow:latest-py3-jupyter
 echo "Starting Tensorflow Server Configure"
 sudo docker exec -it tensorflow bash

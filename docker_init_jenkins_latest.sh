@@ -11,4 +11,4 @@ fi
 echo "Docker Volumes: $docker_volumes, starting initializing...";
 docker container stop $container_name;
 docker container rm $container_name;
-docker run --name $container_name -p 9080:8080 -p 50000:50000 -v $docker_volumes/$container_name/2.60.3:/var/jenkins_home -d jenkins:2.60.3
+docker run --name $container_name -p 9080:8080 -p 50000:50000 -v $docker_volumes/$container_name/2.60.3:/var/jenkins_home --restart always -d jenkins:2.60.3

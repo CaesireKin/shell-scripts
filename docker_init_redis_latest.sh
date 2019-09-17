@@ -12,4 +12,4 @@ fi
 echo "Docker Volumes: $docker_volumes, starting initializing...";
 docker container stop $container_name;
 docker container rm $container_name;
-docker run --name $container_name -p 6379:6379 -v $docker_volumes/$container_name/data:/data -d redis redis-server --appendonly yes;
+docker run --name $container_name -p 6379:6379 -v $docker_volumes/$container_name/data:/data --restart always -d redis redis-server --appendonly yes;

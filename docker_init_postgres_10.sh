@@ -12,4 +12,4 @@ fi
 echo "Docker Volumes: $docker_volumes, starting initializing...";
 docker container stop $container_name;
 docker container rm $container_name;
-docker run --name $container_name -p 5432:5432 -v $docker_volumes/$container_name/data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=$postgres_root_passwrd -d postgres:10;
+docker run --name $container_name -p 5432:5432 -v $docker_volumes/$container_name/data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=$postgres_root_passwrd --restart always -d postgres:10;
