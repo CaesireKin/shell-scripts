@@ -13,7 +13,7 @@ fi
 echo "Docker Volumes: $docker_volumes, starting initializing...";
 docker container stop $container_name;
 docker container rm $container_name;
-docker run --name $container_name -p 27017:27017 -v $docker_volumes/$container_name/data:/data/db -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=$mongo_admin_password --restart always -d mongo --wiredTigerCacheSizeGB 0.5;
+docker run --name $container_name -p 27017:27017 -v $docker_volumes/$container_name/data:/data/db --memory=1G --memory-swap=2G --cpus=1 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=$mongo_admin_password --restart always -d mongo --wiredTigerCacheSizeGB 0.75;
 
 if [ $mongo_express_admin_password ]; then
   echo "Initialize Mongo Express ...";
