@@ -15,8 +15,8 @@ docker container rm $container_name;
 
 if [ ! $redis_conf ]; then
   echo "Initialize redis without redis.conf";
-  docker run --name $container_name -p 6379:6379 -v $docker_volumes/$container_name/data:/data --restart always -d redis redis-server --appendonly yes;
+  docker run --name $container_name -p 6379:6379 -v $docker_volumes/$container_name/data:/data --memory=256M --memory-swap=256M --cpus=1 --restart always -d redis redis-server --appendonly yes;
 else
   echo "Initialize redis with redis.conf";
-  docker run --name $container_name -p 6379:6379 -v $docker_volumes/$container_name/conf/redis.conf:/usr/local/etc/redis/redis.conf -v $docker_volumes/$container_name/data:/data --restart always -d redis redis-server --appendonly yes;
+  docker run --name $container_name -p 6379:6379 -v $docker_volumes/$container_name/conf/redis.conf:/usr/local/etc/redis/redis.conf -v $docker_volumes/$container_name/data:/data --memory=256M --memory-swap=256M --cpus=1 --restart always -d redis redis-server --appendonly yes;
 fi
