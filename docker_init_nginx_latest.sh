@@ -10,4 +10,4 @@ fi
 
 docker container stop $container_name;
 docker container rm $container_name;
-docker run --name $container_name -p 80:80 -p 443:443 -v $docker_volumes/$container_name/html:/usr/share/nginx/html:ro -v $docker_volumes/$container_name/conf/:/etc/nginx.conf:ro --restart always -d nginx;
+docker run --name $container_name -p 80:80 -p 443:443 -v $volume_dir/$container_name/html:/usr/share/nginx/html:ro -v $volume_dir/$container_name/conf/:/etc/nginx.conf:ro --restart always -d nginx;
